@@ -1,0 +1,41 @@
+Build the String
+1. Posting_Key, EXT_TRANS_ID, and Amt - are concatenated into one string
+
+This string is the sourceStr below:
+
+2.Md5 hashing
+
+Import java.security.MessageDigest
+
+  public static byte[] getMD5HashValue( String sourceStr )
+  {
+    if ( sourceStr==null || sourceStr.length()==0 )
+      return null;
+
+    byte[] digestBytes = null;
+    try
+    {
+      MessageDigest md = MessageDigest.getInstance( "MD5" );
+      digestBytes = md.digest( sourceStr.getBytes() );
+    }
+    catch( Exception e )
+    {
+      System.out.println( "Exception occurred in TMisc.getMD5HashValue()
+- " + e.getMessage() );
+      return null;
+    }
+    return digestBytes;
+  }
+
+
+3. Base 64 encoding:
+base64.java which is included in the zip contains the class for this base64 encoding.... Please import the file.
+
+
+String encBytes            = Base64.encodeBytes( originalBytes );
+
+
+The digestBytes has to be passed as originalBytes in this base 64 encoding.
+
+this encBytes has to be passed as the parameter for touchnet...
+

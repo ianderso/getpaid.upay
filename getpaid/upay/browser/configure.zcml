@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+  <browser:page
+     for="*"
+     name="getpaid-upay-listener"
+     class="getpaid.upay.browser.submit_handler.Listener"
+     template="templates/listener.pt"
+     permission="zope2.View"
+     />
+
+</configure>
